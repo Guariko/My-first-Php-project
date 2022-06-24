@@ -1,0 +1,113 @@
+/* TODO: Setting up the project starts */
+
+html {
+    font-size: 62,5%;
+    scroll-behavior: smooth;
+}
+
+* {
+    box-shadow: none;
+    box-sizing: border-box;
+    outline: none;
+    padding: 0;
+    margin: 0;
+    border: none;
+    border-radius: 0;
+    text-decoration: none;
+    overflow-x: hidden;
+    background: none;
+    text-transform: capitalize;
+}
+
+:root {
+    --main-color: rgb(120, 125, 192);
+    --second-color: #fff; 
+    --third-color: rgb(14, 13, 13);
+    --button-color: rgb(233, 87, 114);
+}
+
+body {
+    background: var(--main-color);
+}
+
+/* FIXME: Setting up  the project ends */
+
+/* TODO: Main adjustments */
+
+.main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+/* FIXME: Main adjsutments end */
+
+/* TODO: Login register starts */
+
+.register__login__container {
+    width: 90vw;
+    max-width: 20rem;
+    height: 30rem;
+    background: var(--second-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    border-radius: 1rem;
+    padding: 0.5rem;
+}
+
+.register__login__header {
+    color: var(--third-color);
+}
+
+.register__login__container input {
+    background: var(--second-color);
+    border-radius: 2rem;
+    border: 0.1rem solid rgb(102, 100, 100);
+    width: 96%;
+    padding: 0.4rem 0.6rem;
+    text-transform: none;
+    font-size: 1rem;
+}
+
+.register__login {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.register__login .inputs__container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.button {
+    width: 96%;
+    background: var(--button-color);
+    padding: 0.4rem 0.6rem;
+    border-radius: 1rem;
+    color: var(--second-color);
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all .2s linear;
+}
+
+.button:hover {
+    letter-spacing: 0.1rem;
+}
+
+.error {
+    color: red;
+    font-size: 0.8rem;
+    max-width: 40ch;
+    display: none;
+    text-transform: none;
+}
+
+
+/* FIXME: Login register ends */
