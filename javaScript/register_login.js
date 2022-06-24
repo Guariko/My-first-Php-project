@@ -1,14 +1,10 @@
-const registerLoginForm = document.querySelector(".register__login");
 const userInputs = document.querySelectorAll(".register__login__container input");
 const userMinimunCharacterPassword = 8;
-
-let cris = "hello";
-
+const registerButton = document.querySelector(".button:first-of-type")
 
 
-registerLoginForm.nextElementSibling
 
-registerLoginForm.addEventListener("submit", e => {
+registerButton.addEventListener("click", e => {
     userInputs.forEach(userInput => {
         if (userInput.getAttribute("type") === "password") {
             userPassword = userInput.value 

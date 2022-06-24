@@ -49,7 +49,12 @@ $inputs = [
 
 $labelClass = "";
 
-$buttons = ["class" => "button", "amount" => 1, "contents" => ["register"], "buttonsContainerClass" => ""];
+$buttons = [
+    "class" => "button", "amount" => 2,
+    "contents" => ["register", "log-in"],
+    "buttonsContainerClass" => "buttons__container",
+    "buttonsName" => ["register", "login"], "buttonsType" => ["submit", "submit"]
+];
 
 $method = "POST";
 
@@ -57,7 +62,7 @@ $formClass = "register__login";
 
 $formContainerClass = "register__login__container";
 
-
+$userAdministration = new UserAdministration("login_register_data/users_account.json");
 
 ?>
 
@@ -66,7 +71,7 @@ $formContainerClass = "register__login__container";
 
     $forms->drawForm($amountOfForms, $header, $inputs, $labelClass, $buttons, $method, $formClass, $formContainerClass);
 
-    if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["register"])) {
 
         $userMinimunCharacterPassword = 8;
         $userMinimunCharacterName = 2;
@@ -81,18 +86,22 @@ $formContainerClass = "register__login__container";
             $_POST["userEmail"] !== false && strlen($userInformations["userPassword"]) >= $userMinimunCharacterPassword
             && $userInformations["userName"] >= $userMinimunCharacterName
         ) {
-            appendUserInformationToJson("login_register_data/users_account.json", $userInformations);
-            unset($userInformations);
-            $_SESSION["email"] = $userInformations["userEmail"];
+            $userAdministration->appendUserInformationToJson($userInformations);
+            $_SESSION["userEmail"] = $userInformations["userEmail"];
             $_SESSION["userName"] = $userInformations["userName"];
             $_SESSION["userPassword"] = $userInformations["userPassword"];
             $_SESSION["userLoged"] = true;
+            unset($userInformations);
             header("location: ../home.view.php");
             die();
         };
 
 
         unset($userInformations);
+    };
+
+    if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["login"])) {
+        header("location: login_layout.view.php");
     };
 
     ?>

@@ -6,14 +6,17 @@ class Form
 
     public function drawForm(
         $amount = 1,
-        $header = ["header" =>  "my form", "h" => "h1"],
+        $header = ["header" =>  "my form", "h" => "h1", "class" => ""],
         $inputs = [
             "amount" => 1,
             "inputData" => ["class" => "", "types" => ["text"], "contents" => ["my input"], "names" => [""]], "divClass" => ""
 
         ],
         $labelClass = "",
-        $buttons = ["class" => "", "amount" => 1, "contents" => ["my button"], "buttonsContainerClass" => ""],
+        $buttons = [
+            "class" => "", "amount" => 1, "contents" => ["my button"],
+            "buttonsContainerClass" => "", "buttonsName" => [""], "buttonsType" => ["submit"]
+        ],
         $method = "POST",
         $formClass = "",
         $formContainerClass = ""
@@ -59,7 +62,7 @@ class Form
 
             <div class="<?= $inputs["divClass"]  ?>">
                 <label for="<?= $index ?>" class="<?= $labelClass ?>"> <?= $inputs["inputData"]["contents"][$index] ?> </label>
-                <input type="<?= $inputs["inputData"]["types"][$index] ?>" class="<?= $inputs["inputData"]["class"] ?>" id="<?= $index ?>" required minlength="1" maxlength="200" name="<?= $inputs["inputData"]["names"][$index] ?>">
+                <input type="<?= $inputs["inputData"]["types"][$index] ?>" class="<?= $inputs["inputData"]["class"] ?>" id="<?= $index ?>" maxlength="200" name="<?= $inputs["inputData"]["names"][$index] ?>">
                 <p class="error"></p>
 
             </div>
@@ -75,7 +78,7 @@ class Form
 
             <?php for ($index = 0; $index < $buttons["amount"]; $index++) : ?>
 
-                <button type="submit" class="<?= $buttons["class"] ?>"> <?= $buttons["contents"][$index] ?> </button>
+                <button type="<?= $buttons["buttonsType"][$index] ?>" name="<?= $buttons["buttonsName"][$index] ?>" class="<?= $buttons["class"] ?>"> <?= $buttons["contents"][$index] ?> </button>
 
             <?php endfor; ?>
 

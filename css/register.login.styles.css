@@ -109,5 +109,15 @@ body {
     text-transform: none;
 }
 
+.buttons__container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+
+.button[name="login"] {
+    background: rgb(99, 99, 243);
+}
 
 /* FIXME: Login register ends */
